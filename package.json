@@ -1,0 +1,16 @@
+{
+  "name": "rynex-demo",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "rynex dev",
+    "start": "rynex start",
+    "build": "rynex build"
+  },
+  "dependencies": {
+    "rynex": "^0.1.41"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0"
+  }
+}
