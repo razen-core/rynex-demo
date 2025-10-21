@@ -2,6 +2,7 @@
   "name": "rynex-demo",
   "version": "1.0.0",
   "type": "module",
+  "packageManager": "pnpm@10.12.0",
   "scripts": {
     "dev": "rynex dev",
     "start": "rynex start",
