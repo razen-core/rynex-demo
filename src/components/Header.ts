@@ -11,15 +11,35 @@ export default function Header() {
       alignItems: 'center'
     }
   }, [
-    UI.h1({
+    UI.hbox({
       style: {
-        color: '#00ff88',
-        margin: 0,
-        fontSize: '1.5rem',
-        fontWeight: '800',
-        fontFamily: '"Montserrat", sans-serif'
-      }
-    }, 'Rynex'),
+        display: 'flex',
+        alignItems: 'center',
+        gap: '1rem',
+        cursor: 'pointer'
+      },
+      onClick: () => window.location.href = '/'
+    }, [
+      UI.image({
+        src: '/logo/rynex_logo.png',
+        alt: 'Rynex Logo',
+        style: {
+          width: '40px',
+          height: '40px',
+          borderRadius: '50%',
+          objectFit: 'cover'
+        }
+      }),
+      UI.h1({
+        style: {
+          color: '#00ff88',
+          margin: 0,
+          fontSize: '1.5rem',
+          fontWeight: '800',
+          fontFamily: '"Montserrat", sans-serif'
+        }
+      }, 'Rynex')
+    ]),
     
     UI.hbox({
       style: {
