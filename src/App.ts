@@ -74,7 +74,8 @@ export default function App() {
         borderBottom: '1px solid #333333',
         display: 'flex',
         gap: '2rem',
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'space-between'
       }
     }, [
       UI.hbox({

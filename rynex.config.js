@@ -5,6 +5,7 @@ export default {
   sourceMaps: true,
   port: 3000,
   hotReload: true,
+  publicDir: 'public',
   routing: {
     mode: 'history',
     base: '/',
