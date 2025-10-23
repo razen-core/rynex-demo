@@ -1,6 +1,39 @@
 import * as UI from 'rynex';
 
 export default function Header() {
+  const headerStyle = document.createElement('style');
+  headerStyle.textContent = `
+    header {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem !important;
+        flex-wrap: wrap;
+      }
+      header h1 {
+        font-size: 1.2rem !important;
+      }
+      header .header-text {
+        font-size: 0.75rem !important;
+      }
+    }
+    @media (max-width: 480px) {
+      header {
+        padding: 0.75rem !important;
+        gap: 0.5rem !important;
+      }
+      header h1 {
+        font-size: 1rem !important;
+      }
+      header .header-text {
+        font-size: 0.7rem !important;
+      }
+    }
+  `;
+  document.head.appendChild(headerStyle);
+
   return UI.header({
     style: {
       padding: '1.5rem 2rem',
@@ -8,7 +41,11 @@ export default function Header() {
       borderBottom: '1px solid #333333',
       display: 'flex',
       justifyContent: 'space-between',
-      alignItems: 'center'
+      alignItems: 'center',
+      flexWrap: 'wrap',
+      gap: '1rem',
+      width: '100%',
+      boxSizing: 'border-box'
     }
   }, [
     UI.hbox({
@@ -36,7 +73,8 @@ export default function Header() {
           margin: 0,
           fontSize: '1.5rem',
           fontWeight: '800',
-          fontFamily: '"Montserrat", sans-serif'
+          fontFamily: '"Montserrat", sans-serif',
+          whiteSpace: 'nowrap'
         }
       }, 'Rynex')
     ]),
@@ -44,13 +82,18 @@ export default function Header() {
     UI.hbox({
       style: {
         gap: '1rem',
-        alignItems: 'center'
+        alignItems: 'center',
+        minWidth: 0
       }
     }, [
       UI.text({
+        class: 'header-text',
         style: {
           color: '#b0b0b0',
-          fontSize: '0.875rem'
+          fontSize: '0.875rem',
+          whiteSpace: 'nowrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis'
         }
       }, 'Modern Web Framework')
     ])

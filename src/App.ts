@@ -69,13 +69,16 @@ export default function App() {
   const Navigation = () => {
     return UI.nav({
       style: {
-        padding: '1rem 2rem',
+        padding: '1rem',
         background: '#0a0a0a',
         borderBottom: '1px solid #333333',
         display: 'flex',
-        gap: '2rem',
+        gap: '1rem',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        width: '100%',
+        boxSizing: 'border-box'
       }
     }, [
       UI.hbox({
@@ -110,8 +113,11 @@ export default function App() {
       
       UI.hbox({
         style: { 
-          gap: '1rem',
-          flex: 1
+          gap: '0.5rem',
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          minWidth: 0
         }
       }, [
         UI.NavLink({
@@ -121,9 +127,11 @@ export default function App() {
           style: {
             color: '#ffffff',
             textDecoration: 'none',
-            padding: '0.5rem 1rem',
+            padding: '0.4rem 0.8rem',
             borderRadius: '0.5rem',
-            transition: 'all 0.2s ease-in-out'
+            transition: 'all 0.2s ease-in-out',
+            fontSize: '0.9rem',
+            whiteSpace: 'nowrap'
           }
         }, 'Home'),
         UI.NavLink({
@@ -133,9 +141,11 @@ export default function App() {
           style: {
             color: '#ffffff',
             textDecoration: 'none',
-            padding: '0.5rem 1rem',
+            padding: '0.4rem 0.8rem',
             borderRadius: '0.5rem',
-            transition: 'all 0.2s ease-in-out'
+            transition: 'all 0.2s ease-in-out',
+            fontSize: '0.9rem',
+            whiteSpace: 'nowrap'
           }
         }, 'Features'),
         UI.NavLink({
@@ -145,9 +155,11 @@ export default function App() {
           style: {
             color: '#ffffff',
             textDecoration: 'none',
-            padding: '0.5rem 1rem',
+            padding: '0.4rem 0.8rem',
             borderRadius: '0.5rem',
-            transition: 'all 0.2s ease-in-out'
+            transition: 'all 0.2s ease-in-out',
+            fontSize: '0.9rem',
+            whiteSpace: 'nowrap'
           }
         }, 'About'),
         UI.NavLink({
@@ -157,9 +169,11 @@ export default function App() {
           style: {
             color: '#ffffff',
             textDecoration: 'none',
-            padding: '0.5rem 1rem',
+            padding: '0.4rem 0.8rem',
             borderRadius: '0.5rem',
-            transition: 'all 0.2s ease-in-out'
+            transition: 'all 0.2s ease-in-out',
+            fontSize: '0.9rem',
+            whiteSpace: 'nowrap'
           }
         }, 'Blog'),
         UI.NavLink({
@@ -169,9 +183,11 @@ export default function App() {
           style: {
             color: '#ffffff',
             textDecoration: 'none',
-            padding: '0.5rem 1rem',
+            padding: '0.4rem 0.8rem',
             borderRadius: '0.5rem',
-            transition: 'all 0.2s ease-in-out'
+            transition: 'all 0.2s ease-in-out',
+            fontSize: '0.9rem',
+            whiteSpace: 'nowrap'
           }
         }, 'Contact')
       ])
@@ -193,7 +209,7 @@ export default function App() {
     UI.RouterOutlet(router)
   ]);
 
-  // Add active link styles
+  // Add active link styles and responsive styles
   const style = document.createElement('style');
   style.textContent = `
     .nav-link:hover {
@@ -203,6 +219,26 @@ export default function App() {
       background: rgba(0, 255, 136, 0.2) !important;
       color: #00ff88 !important;
       font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      nav {
+        padding: 0.75rem !important;
+        gap: 0.5rem !important;
+      }
+      .nav-link {
+        padding: 0.3rem 0.6rem !important;
+        font-size: 0.8rem !important;
+      }
+    }
+    @media (max-width: 480px) {
+      nav {
+        padding: 0.5rem !important;
+        gap: 0.25rem !important;
+      }
+      .nav-link {
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.75rem !important;
+      }
     }
   `;
   document.head.appendChild(style);
